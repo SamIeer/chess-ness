@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+.chessboard {
+    border:2px solid black;
+    display: grid;
+    grid-template-columns:repeat(8,65px);
+    grid-template-rows:repeat(8,65px);
+    justify-content: center;
+    gap:0vw;
+    font-size: 50px;
+  }
+  
+  
+  .square {
+    border:2px solid black;
+  }
+  .square:nth-child(odd){background-color: #f0d9b5;}
+  .square:nth-child(odd){background-color: #b58863;}
+
+  /* .white {
+    background-color: #f0d9b5;}
+  .black {
+    background-color: #b58863;} */
+  
+  .rook {
+    background-image: url('rook.svg');
+    background-size: contain;
+  }
+  
