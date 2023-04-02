@@ -9,25 +9,22 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+    margin-top: 70px;}
 
 .chessboard {
     border:2px solid black;
     display: grid;
-    grid-template-columns:repeat(8,65px);
-    grid-template-rows:repeat(8,65px);
+    grid-template-columns:repeat(8,70px);
+    grid-template-rows:repeat(8,70px);
     justify-content: center;
     gap:0vw;
-    font-size: 50px;
-   
   }
   
   
-  .square {
-    border:2px solid black;
-  }
+  .square {border:2px solid black;
+    padding: 5px 5px;
+    font-size: 55px;
+  text-align: center;}
   .square:nth-child(odd){background-color: #f0d9b5;}
   .square:nth-child(odd){background-color: #b58863;}
 
