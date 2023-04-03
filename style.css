@@ -16,14 +16,14 @@
     display: grid;
     grid-template-columns:repeat(8,70px);
     grid-template-rows:repeat(8,70px);
-    justify-content: center;
+   
     gap:0vw;
   }
   
   
   .square {border:2px solid black;
-    padding: 5px 5px;
-    font-size: 55px;
+    width:70px; height:70px;
+    font-size: 50px;
   text-align: center;}
   .square:nth-child(odd){background-color: #f0d9b5;}
   .square:nth-child(odd){background-color: #b58863;}
