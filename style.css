@@ -33,5 +33,15 @@
   .black {
     background-color: #b58863;} */
   
+  .way{
+    width: 30%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, 0.342);
+    border-radius: 50%;
+  }
   
-  
+  .flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
