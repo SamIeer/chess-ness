@@ -1,26 +1,32 @@
 
-const box=document.getElementsByClassName('square')
-// console.log(box)
+const squares = document.getElementsByClassName('square');
 
-for (const x of box) {
-  x.addEventListener("click", ()=> {
-
-    let idOfElement = x.getAttribute("id");
+for (const square of squares) {
+  square.addEventListener("click", ()=> {
+    let idOfElement = square.getAttribute("id");
     let innerHtmlOfElement = document.getElementById(idOfElement).innerHTML;
-    console.log(idOfElement);
-    if (
-       innerHtmlOfElement.includes("null")
-    //   innerHtmlOfElement.includes("white")
-    ) {
-       document.getElementById(idOfElement).style.backgroundColor = "yellow";
+    
+    // Remove yellow background color from all squares
+    for (const s of squares) {
+      s.style.backgroundColor = "";
     }
-    else{
-      document.getElementById(idOfElement).style.innerHTML ==" "
+    
+    if (innerHtmlOfElement.trim() === "") {
+      // If the square is empty, do nothing
+      return;
+    }
+    else {
+      // If the square is not empty, change its background color
+      square.style.backgroundColor = "yellow";
     }
   });
 }
 
 
+
+
+
+// function for the sum
 
 
 
