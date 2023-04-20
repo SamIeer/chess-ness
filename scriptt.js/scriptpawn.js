@@ -37,19 +37,6 @@ for(const i of pawnarr){
 }
 
 
-// highlighting the front to boxes in which pawn will move when we click on them
-// const path=([one,two])=>{
-//             let way=document.createElement('div');
-//             let way2=document.createElement('div')
-//             way.setAttribute('class','way')
-//             way2.setAttribute('class','way')
-//             one.appendChild(way)
-//             two.appendChild(way2)
-//             console.log(one,two)
-//             one.classList.add('flex')
-//             two.classList.add('flex')
-// }
-
 let selectedPawns = [];
 
 const path = ([one, two]) => {
