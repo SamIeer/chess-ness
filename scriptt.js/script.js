@@ -4,7 +4,7 @@ class Square {
     color;
     isHighlighted;
     isHint;
-    isPiece;
+    ispiece;
     id;
 }
 
@@ -54,7 +54,6 @@ for (let i = 8; i > 0; i--) {
     chararr.push(rowArray);
 }
 
-console.log(chararr);
 
 import * as ness from "../scriptt.js/rendered.js";
 ness.renderui(chararr)

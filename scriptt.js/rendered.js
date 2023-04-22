@@ -1,3 +1,6 @@
+``
+import { Pmoves} from "../scriptt.js/pawnskills.js";
+import { setarmy } from "./armyset.js";
 const renderui=(squares)=>{
     // maincontainer from markup
     const maincontainer = document.querySelector('.container')
@@ -12,18 +15,33 @@ const renderui=(squares)=>{
     rank.setAttribute('id','i'+rankno--)
     maincontainer.appendChild(rank);
     element.forEach(el =>{
+        el.ispiece=setarmy(el)
+
         const square = document.createElement('div');
         square.style.backgroundColor = square.color;
         el.renderedHtml  = square;
-        console.log(el)
+    
         square.classList.add(`color-${el.color}`);
         square.classList.add('square-common');
         
         // 
         square.setAttribute('id',el.id)
-
+        // adding files to the each square
         square.classList.add('file-'+el.id[0])
         rank.appendChild(square);
+        // inserting the pawns and other charecter in the board
+        const pawnsym=document.createTextNode(``)
+        if(el.ispiece){
+            const psing=document.createElement('div')
+            pawnsym.textContent=el.ispiece
+            psing.appendChild(pawnsym)
+            square.appendChild(psing)
+
+            psing.addEventListener('click',()=>{
+                Pmoves(el,psing)
+            })
+        }
+      
     });
 
 });

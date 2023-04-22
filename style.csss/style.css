@@ -6,6 +6,9 @@
 }
 
 /* main chess board */
+.chessboard{
+  margin:3rem 20rem;
+}
 .container {
   display: grid;
   display: flex;
@@ -23,20 +26,29 @@
 .square-common {
   width: 70px;
   height:70px;
+  font-size:4rem;
 }
 
 .color-dark{
   background-color: #769656;
-  background-color: #ff0101;
+  background-color: #c0af81;
 }
 
 .color-light{
   background-color: #EEEED2;
-  background-color: #020202;
+  background-color: #252525;
 }
 
 .rank-style{
   width: 560px;
   height: 70px;
-  display: flex;
-}
+  display: flex;}
+
+/*addition classes for pawns and chareacter  */
+.dot{
+  border-radius: 50%;
+  background-color:#d2efb236;
+  width: 30%; height: 30%;
+  margin: 1.2vw 2.3vw;
+  display: inline-block;
+ }
