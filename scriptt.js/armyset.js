@@ -40,5 +40,29 @@ export const setarmy=(obj)=>{
 //king
     else if(obj.id=='e8'){
         return '♚'}
+}
 
+export const highlight=(el)=>
+{const squares = document.getElementsByClassName('square-common');
+
+for (const square of squares) {
+  square.addEventListener("click", ()=> {
+    let idOfElement = square.getAttribute("id");
+    let innerHtmlOfElement = document.getElementById(idOfElement).innerHTML;
+    
+    // Remove yellow background color from all squares
+    for (const s of squares) {
+      s.style.backgroundColor = "";
+    }
+    
+    if (innerHtmlOfElement.trim() === "") {
+      // If the square is empty, do nothing
+      return;
+    }
+    else {
+      // If the square is not empty, change its background color
+      square.style.backgroundColor = "yellow";
+    }
+  });
+}
 }

@@ -35,12 +35,14 @@ const front2=(row,column,psing)=>{
         pawnar.push(highlightId.id)}}
    
         for(const i of pawnar){
-             
             const myTag = document.getElementById(i);
             console.log(myTag)
             const dot = document.createElement("div");
             myTag.appendChild(dot);
             dot.classList.add("dot");
+            if(dot.firstChild){
+                dot.removeChild(dot.firstChild)
+            }
             // moving the pawn and removing the dot
             myTag.addEventListener('click', ()=>{
                 myTag.innerHTML = psing.innerHTML;
@@ -48,7 +50,7 @@ const front2=(row,column,psing)=>{
                 document.getElementById(removecircle[0]).innerHTML = '';
                 psing.textContent = '';
                 console.log(i)
-              }, {once: true});
+            }, {once: true});
         }
     }
 

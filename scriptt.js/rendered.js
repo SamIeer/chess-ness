@@ -1,6 +1,6 @@
 ``
 import { Pmoves} from "../scriptt.js/pawnskills.js";
-import { setarmy } from "./armyset.js";
+import { setarmy, highlight } from "../scriptt.js/armyset.js";
 const renderui=(squares)=>{
     // maincontainer from markup
     const maincontainer = document.querySelector('.container')
@@ -16,6 +16,7 @@ const renderui=(squares)=>{
     maincontainer.appendChild(rank);
     element.forEach(el =>{
         el.ispiece=setarmy(el)
+        el.isHighlighted=highlight(el)
 
         const square = document.createElement('div');
         square.style.backgroundColor = square.color;
@@ -23,6 +24,7 @@ const renderui=(squares)=>{
     
         square.classList.add(`color-${el.color}`);
         square.classList.add('square-common');
+        
         
         // 
         square.setAttribute('id',el.id)
@@ -39,6 +41,7 @@ const renderui=(squares)=>{
 
             psing.addEventListener('click',()=>{
                 Pmoves(el,psing)
+                el.isHighlighted
             })
         }
       
