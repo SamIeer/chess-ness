@@ -8,6 +8,7 @@
 /* main chess board */
 .chessboard{
   margin:3rem 20rem;
+  cursor: pointer;
 }
 .container {
   display: grid;
