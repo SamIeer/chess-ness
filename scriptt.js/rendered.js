@@ -10,13 +10,17 @@ const renderui=(squares)=>{
     let rankno=8;
    // create square of size 70 x 70    
    squares.forEach(element => {
+
     let rank = document.createElement("div");
     rank.classList.add('rank-style');
     rank.setAttribute('id','i'+rankno--)
     maincontainer.appendChild(rank);
+
+    //for the squares 
     element.forEach(el =>{
         el.ispiece=setarmy(el)
         el.isHighlighted=highlight(el)
+        console.log(el)
 
         const square = document.createElement('div');
         square.style.backgroundColor = square.color;
@@ -40,7 +44,7 @@ const renderui=(squares)=>{
             square.appendChild(psing)
 
             psing.addEventListener('click',()=>{
-                Pmoves(el,psing)
+                Pmoves(el,psing,square)
                 el.isHighlighted
             })
         }

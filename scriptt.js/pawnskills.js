@@ -40,7 +40,8 @@ export let Pmoves = (el, psing,square) => {
         dot.parentNode.removeChild(dot);
       }
     });
-  
+    
+    // FOR GIVING THE CLUE WHERRE PAWN CAN MOVE and moving the pawn
     for (const i of pawnar) {
       const myTag = document.getElementById(i);
       const dot = document.createElement("div");
@@ -54,7 +55,8 @@ export let Pmoves = (el, psing,square) => {
     
     function handleClick() {
       const clickedElement = this;
-      
+
+     
       // Remove event listener from both elements
       for (const i of pawnar) {
         const element = document.getElementById(i);
@@ -64,7 +66,41 @@ export let Pmoves = (el, psing,square) => {
       clickedElement.innerHTML = psing.innerHTML;
       const removecircle = pawnar.filter((el) => el !== clickedElement.id);
       document.getElementById(removecircle[0]).innerHTML = '';
+
+      // deleting the pawn at intial position
+   
+      secndmv(clickedElement,Number(clickedElement.id[1]),clickedElement.id[0],psing)
       square.removeChild(psing)
+   
+       // second move function call
     }
-    
+   
   }
+
+  const secndmv=(currntposition,currntrow,currntclm,psing)=>{
+    const pawar=['♙','♟︎']
+    if(psing.innerHTML='♙'){
+      currntrow++;
+      console.log(currntrow)
+      const highlightId = document.getElementById(currntclm + currntrow)
+      console.log(highlightId)
+      currntposition.addEventListener('click',()=>{
+        const dot = document.createElement("div");
+        highlightId.appendChild(dot);
+        dot.classList.add("dot");
+      })
+    }
+    else if(psing.innerHTML='♟︎'){
+       currntrow--;
+      console.log(currntrow)
+       const highlightId = document.getElementById(currntclm + currntrow)
+       console.log(highlightId)
+       currntposition.addEventListener('click',()=>{
+         const dot = document.createElement("div");
+         highlightId.appendChild(dot);
+         dot.classList.add("dot");
+       })
+    }
+
+  }
+
