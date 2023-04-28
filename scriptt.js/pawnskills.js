@@ -53,7 +53,7 @@ export let Pmoves = (el, psing,square) => {
       }
     }
     
-    function handleClick() {
+      function handleClick() {
       const clickedElement = this;
 
      
@@ -77,30 +77,30 @@ export let Pmoves = (el, psing,square) => {
    
   }
 
-  const secndmv=(currntposition,currntrow,currntclm,psing)=>{
-    const pawar=['♙','♟︎']
-    if(psing.innerHTML='♙'){
-      currntrow++;
-      console.log(currntrow)
-      const highlightId = document.getElementById(currntclm + currntrow)
-      console.log(highlightId)
+  const secndmv=(currntposition,currntrow,currntclm,psing,square)=>{
+    
+    // using if else 
+    // if pawn is black 
+    if(psing.innerHTML==='♙'){
+      currntrow++;}
+    
+      // if pawn is white
+    else if(psing.innerHTML='♟︎'){
+       currntrow--;}
+
+      //for the logic of makin clue to for  pawn where to move
+      // console.log(currntrow)
+       const highlightId = document.getElementById(currntclm + currntrow)
+       console.log(highlightId)
+
       currntposition.addEventListener('click',()=>{
         const dot = document.createElement("div");
         highlightId.appendChild(dot);
-        dot.classList.add("dot");
-      })
-    }
-    else if(psing.innerHTML='♟︎'){
-       currntrow--;
-      console.log(currntrow)
-       const highlightId = document.getElementById(currntclm + currntrow)
-       console.log(highlightId)
-       currntposition.addEventListener('click',()=>{
-         const dot = document.createElement("div");
-         highlightId.appendChild(dot);
-         dot.classList.add("dot");
-       })
-    }
+        dot.classList.add("dot");})
 
+      highlightId.addEventListener('click',()=>{
+        highlightId.innerHTML = psing.innerHTML;
+        psing.innerHTML=''
+      })
   }
 
