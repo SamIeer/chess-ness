@@ -88,19 +88,27 @@ export let Pmoves = (el, psing,square) => {
     else if(psing.innerHTML='♟︎'){
        currntrow--;}
 
-      //for the logic of makin clue to for  pawn where to move
-      // console.log(currntrow)
-       const highlightId = document.getElementById(currntclm + currntrow)
-       console.log(highlightId)
+    //for the logic of makin clue to for  pawn where to move
+    // console.log(currntrow)
+    const highlightId = document.getElementById(currntclm + currntrow)
+    console.log(highlightId)
 
-      currntposition.addEventListener('click',()=>{
-        const dot = document.createElement("div");
-        highlightId.appendChild(dot);
-        dot.classList.add("dot");})
+    currntposition.addEventListener('click',()=>{
+      const dot = document.createElement("div");
+      highlightId.appendChild(dot);
+      dot.classList.add("dot");})
 
-      highlightId.addEventListener('click',()=>{
-        highlightId.innerHTML = psing.innerHTML;
-        psing.innerHTML=''
-      })
+    //  adding eventlistner and passing the eventremoving function 
+      highlightId.addEventListener('click',handClick)
+      
+      // for adding the pawn and removing the eventlistner from the previous button
+      function handClick() {
+      const clickedElement = this;
+
+      highlightId.removeEventListener('click', handClick);
+      highlightId.innerHTML = psing.innerHTML;
+      currntposition.innerHTML=""
+    }
+
   }
 
