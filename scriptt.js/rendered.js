@@ -20,7 +20,7 @@ const renderui=(squares)=>{
     element.forEach(el =>{
         el.ispiece=setarmy(el)
         el.isHighlighted=highlight(el)
-        console.log(el)
+        // console.log(el)
 
         const square = document.createElement('div');
         square.style.backgroundColor = square.color;

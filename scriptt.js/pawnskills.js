@@ -37,8 +37,7 @@ export let Pmoves = (el, psing,square) => {
     const dots = document.querySelectorAll('.dot');
     dots.forEach(dot => {
       if (pawnar.indexOf(dot.parentNode.id) === -1) {
-        dot.parentNode.removeChild(dot);
-      }
+        dot.parentNode.removeChild(dot);}
     });
     
     // FOR GIVING THE CLUE WHERRE PAWN CAN MOVE and moving the pawn
@@ -50,35 +49,33 @@ export let Pmoves = (el, psing,square) => {
       
       if (pawnar.indexOf(i) === 1 || pawnar.indexOf(i) === 0) {
         myTag.addEventListener('click', handleClick);
-      }
-    }
+      }}
     
-      function handleClick() {
+      // FUNCTION FOR REMOVING 
+      function handleClick(){
       const clickedElement = this;
 
-     
       // Remove event listener from both elements
       for (const i of pawnar) {
         const element = document.getElementById(i);
-        element.removeEventListener('click', handleClick);
-      }
+        element.removeEventListener('click', handleClick);}
       
       clickedElement.innerHTML = psing.innerHTML;
       const removecircle = pawnar.filter((el) => el !== clickedElement.id);
       document.getElementById(removecircle[0]).innerHTML = '';
+      
+      // calling the second function 
+      secndmv(clickedElement,Number(clickedElement.id[1]),clickedElement.id[0],psing)
 
       // deleting the pawn at intial position
-   
-      secndmv(clickedElement,Number(clickedElement.id[1]),clickedElement.id[0],psing)
       square.removeChild(psing)
-   
-       // second move function call
-    }
-   
+      }
   }
 
-  const secndmv=(currntposition,currntrow,currntclm,psing,square)=>{
-    
+
+
+  // funtion for the second move aftr the intital move of pawn
+  const secndmv=(currntposition,currntrow,currntclm,psing)=>{
     // using if else 
     // if pawn is black 
     if(psing.innerHTML==='♙'){
@@ -87,28 +84,33 @@ export let Pmoves = (el, psing,square) => {
       // if pawn is white
     else if(psing.innerHTML='♟︎'){
        currntrow--;}
+    
+       if (currntrow === 1 || currntrow === 8) {
+        return;
+      }
 
     //for the logic of makin clue to for  pawn where to move
     // console.log(currntrow)
     const highlightId = document.getElementById(currntclm + currntrow)
     console.log(highlightId)
-
+    
+    
     currntposition.addEventListener('click',()=>{
       const dot = document.createElement("div");
       highlightId.appendChild(dot);
       dot.classList.add("dot");})
 
-    //  adding eventlistner and passing the eventremoving function 
-      highlightId.addEventListener('click',handClick)
+    // Adding eventlistner and passing the eventremoving function 
+    highlightId.addEventListener('click',handClick)
       
-      // for adding the pawn and removing the eventlistner from the previous button
-      function handClick() {
-      const clickedElement = this;
+    // For adding the pawn and removing the eventlistner from the previous button
+    function handClick() {
+    const clickedElement = this;
 
-      highlightId.removeEventListener('click', handClick);
-      highlightId.innerHTML = psing.innerHTML;
-      currntposition.innerHTML=""
+    highlightId.removeEventListener('click', handClick);
+    highlightId.innerHTML = currntposition.innerHTML;
+    currntposition.innerHTML=""
+    return secndmv(highlightId,Number(highlightId.id[1]),highlightId.id[0],psing)
     }
-
   }
 
